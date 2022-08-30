@@ -2,17 +2,19 @@ import { Fragment , useContext} from "react";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { UserContext } from "../../contexts/user.context";
-import { auth, signOutUser } from "../../Utils/firebase/firebase.utils";
+import { signOutUser } from "../../Utils/firebase/firebase.utils";
 import "./navigation.styles.scss";
 
 const Navigation = () => { //it's a TOP level component now!!!
-	const { currentUser, setCurrentUser } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext);
 	// console.log(currentUser);
 
-	const signOutHandler = async () => {
-		await signOutUser(auth);
-		setCurrentUser(null);
-	}
+	// const signOutHandler = async () => {
+	// 	await signOutUser(auth);
+	// 	setCurrentUser(null);
+	// }    
+	// we centrilizing this feature via useEffect() in user.context.jsx 
+	// Here we only need signOutUser(auth), and we call in in UI below 
 	
 
 	return (
@@ -26,7 +28,7 @@ const Navigation = () => { //it's a TOP level component now!!!
 						SHOP
 					</Link>
 					{currentUser ? (
-							<span className="nav-link" onClick={signOutHandler}>SIGN OUT</span>
+							<span className="nav-link" onClick={signOutUser}>SIGN OUT</span>
 						) : ( <Link className="nav-link" to="/auth">
 									SIGN IN
 								</Link> 

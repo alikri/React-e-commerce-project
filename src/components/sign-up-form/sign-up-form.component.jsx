@@ -1,8 +1,8 @@
-import { useState, useContext } from "react"; 
+import { useState } from "react"; 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import "./sign-up-form.styles.scss";
-import { UserContext } from "../../contexts/user.context";
+// import { UserContext } from "../../contexts/user.context"; we centrilizing this feature via useEffect() in user.context.jsx
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../Utils/firebase/firebase.utils";
 
 const defaultFormField = {
@@ -16,7 +16,7 @@ const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormField);
 	const { displayName, email, password, confirmPassword } = formFields;
 
-	const { setCurrentUser } = useContext(UserContext);
+	// const { setCurrentUser } = useContext(UserContext); we centrilizing this feature via useEffect() in user.context.jsx
 
 	console.log(formFields);
 
@@ -35,7 +35,7 @@ const SignUpForm = () => {
 		try {
 			const { user } = await createAuthUserWithEmailAndPassword(email, password);
 			
-			setCurrentUser(user);
+			// setCurrentUser(user);
 
 			await createUserDocumentFromAuth(user, { displayName });
 			
