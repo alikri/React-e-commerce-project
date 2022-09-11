@@ -18,6 +18,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-
-// ? <> </>  it is a shorthand for FRAGMANT , otherwise you need to import Fragmant from react

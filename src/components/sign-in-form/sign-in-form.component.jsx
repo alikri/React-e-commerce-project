@@ -5,7 +5,7 @@ import "./sign-in-form.styles.scss";
 
 // import { UserContext } from "../../contexts/user.context"; we centrilizing this feature via useEffect() in user.context.jsx
 
-import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../Utils/firebase/firebase.utils";
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 
 const defaultFormField = {
 	email: "",

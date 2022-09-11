@@ -3,7 +3,7 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import "./sign-up-form.styles.scss";
 // import { UserContext } from "../../contexts/user.context"; we centrilizing this feature via useEffect() in user.context.jsx
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../Utils/firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 
 const defaultFormField = {
 	displayName: "",
