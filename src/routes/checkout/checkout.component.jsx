@@ -24,9 +24,9 @@ const Checkout = () => {
 				<HeaderBlock>
 					<span>Price</span>
 				</HeaderBlock>
-				<HeaderBlock>
+				<HeaderBlockLastChild>
 					<span>Remove</span>
-				</HeaderBlock>
+				</HeaderBlockLastChild>
 			</CheckoutHeader>
 			{cartItems.map((cartItem) => (<CheckoutItem
 					key={cartItem.id}
