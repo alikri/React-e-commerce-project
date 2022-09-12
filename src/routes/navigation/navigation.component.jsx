@@ -8,7 +8,7 @@ import { UserContext } from "../../contexts/user.context";
 import { CartContext} from "../../contexts/cart.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import "./navigation.styles.scss";
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigation.styles";
 
 const Navigation = () => { //it's a TOP level component now!!!
 	const { currentUser } = useContext(UserContext);
@@ -27,29 +27,29 @@ const Navigation = () => { //it's a TOP level component now!!!
 
 	return (
 		<Fragment>
-			<div className="navigation">
-				<Link className="logo-container" to="/">
+			<NavigationContainer>
+				<LogoContainer to="/">
 					<CrwnLogo className="logo" />
-				</Link>
-				<div className="nav-links-container">
-					<Link className="nav-link" to="/shop">
+				</LogoContainer>
+				<NavLinks>
+					<NavLink to="/shop">
 						SHOP
-					</Link>
+					</NavLink>
 					{currentUser ? (
-							<span className="nav-link" onClick={signOutUser}>SIGN OUT</span>
-						) : ( <Link className="nav-link" to="/auth">
+							<span onClick={signOutUser}>SIGN OUT</span>
+						) : ( <NavLink  className="nav-link" to="/auth">
 									SIGN IN
-								</Link> 
+								</NavLink> 
 						) 
 					}
 					<CartIcon />
-				</div>
+				</NavLinks>
 				{isCartOpen && <CartDropdown />}
 				{/* it will try to evaluate the thruthiness of both sides. On the rigth side is a component.
 				 Component is always a true value. So, if both are true, it will return the last value, which is a component in this case.
 				 If the first value is false, it won't return anything. So, here basically if both are true - the dropdown will show up */}
 
-			</div>
+			</NavigationContainer>
 			<Outlet />
 		</Fragment>
 	)
